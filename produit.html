@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Meubles</title>
+        <!-- Ajout du CDN Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="src/style.css">
+        <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
+        <script src="nav.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="nav">
+                <div class="container">
+                    <div id="mainListDiv" class="main_list">
+                        <ul class="navlinks">
+                            <li><a href="index.html">Acceuil</a></li>
+                            <li><a href="basket.html">Panier</a></li>
+                            <li><a href="mailto:contact@oricono">Contact</a></li>
+                        </ul>
+                    </div>
+                    <span class="navTrigger">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                </div>
+            </nav>
+        </header>    
+        
+        <section class="home">        
+        </section>
+
+        <div class="container-fluid">
+            <div class="row jumbotron furniturselect">
+                <div class="col-12 text-center furniturselect__box">
+                    <h1 class="furniturselect__title">Cet article Oricono vous intéresse ?</h1>
+                    
+                </div>
+            </div>
+
+            <a href="index.html" id="return-icon"><i class="fas fa-arrow-left"></i></a>
+            
+            <!--SECTION PRODUIT SELECTIONNE-->
+            <div class="alert alert-primary" role="alert">
+                    oups, désolé on ne retrouve pas votre produit.
+            </div>
+            <section class="container-fluid product">
+
+                <div class="row">                
+                    <div class="col-12 pdtcase" id="furnitur-case">
+                        <!--SECTION PRODUIT PERSONNALISEE VIA JS DANS FICHIER PRODUIT.JS-->
+                        <img src="#" alt="" class="pdtcase__img" id="pdt-img">
+                        <p class="pdtcase__stock" id="pdt-stock">En stock</p>
+                        <h2 class="pdtcase__title" id="pdt-title">Nom du produit</h2>
+                        <p class="pdtcase__description" id="pdt-description"></p>
+                        <p class="pdtcase__price" id="pdt-price"></p>
+                        <div class="pdtcase__buttons row" id="pdt-buttons">
+                            <div class="form-group">
+                                <select class="form-control pdtcase__varnish-select">
+
+                                    
+                                 </select>
+                            </div>
+                            
+                            <button class="btn btn-light btn__order pdtcase__order" data-toggle="modal" 
+                            data-target="#message-ajout" id="pdt-button"><i class="fas fa-cart-arrow-down"></i>
+                            Ajouter au panier</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!--Modal qui apparaît au clic du bouton "ajout"-->
+                <div class="modal fade" id="message-ajout" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-header modal__title">
+                                <p>Article ajouté à votre panier !</p>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times; </span></button>
+                            </div>
+                            <div class="modal-body modal__message">
+                                <p>Que souhaitez-vous faire maintenant ?</p>
+                            </div>
+                            <div class="modal-footer modal__footer">
+                                <button type="button" class="btn btn-light btn__buy modal__link" onclick="window.location.href = 'index.html';">Continuer vos achats</button>
+                                <button type="button" onclick="window.location.href = 'basket.html';" class="btn btn-light btn__cart modal__link">Voir votre panier</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <footer class="footer">
+                <div class="container-footer">
+                    <ul class="list-inline footer__div text-center">
+                        <li class="list-inline-item footer__item"><a href="#" class="text-body"><i class="far fa-copyright footer__icon"></i><br/>Copyright</a></li>
+                        <li class="list-inline-item footer__item"><a href="#" class="text-body"><i class="fas fa-user-lock footer__icon"></i><br/>Protection des données</a></li>
+                    </ul>
+                </div>
+            </footer>
+    </body>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      
+        
+         
+        <script src="js/produit.js"></script>
+        <script src="js/fetch.js"></script>
+</html>

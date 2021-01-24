@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Meubles</title>
+        <!-- Ajout du CDN Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="src/style.css">
+        <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
+        <script src="nav.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="nav">
+                <div class="container">
+                    <div class="logo">
+                        <a href="images/15675819263013_image1.png"></a>
+                    </div>
+                    <div id="mainListDiv" class="main_list">
+                        <ul class="navlinks">
+                            <li><a href="index.html">Acceuil</a></li>
+                            <li><a href="basket.html">Panier</a></li>
+                            <li><a href="mailto:contact@oricono">Contact</a></li>
+                        </ul>
+                    </div>
+                    <span class="navTrigger">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                </div>
+            </nav>
+        </header>    
+        
+        <section class="home">        
+        </section>
+        <!--SECTION LISTE DES PRODUITS DU PANIER-->
+        <main id="basket-page" class="basketpage">        
+            <h1 class="basketpage__title">Récapitulatif de votre panier</h1>
+            <div class="container-fluid">
+                <div class="row basketpage__sections">
+                    
+                    <div class="col-12 col-lg-8" id="basket-container" >
+                        <!--SECTION PRODUITS DU PANIER CREEE VIA JS DANS FICHIER PANIER.JS-->
+                    </div>
+                    
+                    <!--Section prix total et bouton de commande-->
+                    <div class="col-12 col-lg-4 price">
+                        <p class="price__amount"></i> Montant total de votre commande:<br/><span id="basket-amount"></span></p>
+                        <button class="btn btn-light card__button btn__order price__btn" id="confirm">Terminer votre commande <i class="fas fa-angle-double-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        
+            <!--FORMULAIRE - qui apparaît via JS au clic du bouton "Terminer votre commande"-->
+            <section class="container form" id="form-container">
+                <div class="row row-form"> 
+                    <div class="col-12 ">
+                        <h2 class="form__title">Pour finaliser votre commande, merci de remplir ce formulaire.</h2>
+                        
+                        <form id="formtosubmit" method="post" action="http://localhost:3000/api/furniture/order" enctype="multipart/form-data">
+                            <button type="button" class="close" data-dismiss="form" aria-label="Close"><span aria-hidden="true">&times; </span></button>
+                            <div class="form-group">
+                                <label for="firstName"class="style-label">Prénom :</label>
+                                <input type="text" name="firstName" class="form-control" placeholder="Par ex. Martin" id="firstName" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName"class="style-label">Nom :</label>
+                                <input type="text" name="lastName" class="form-control" placeholder="Par ex. Delavigne" id="lastName" pattern="[A-Za-zàáâãäåçèéêëìíîïðòóôõöùúûüýÿñÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÒÓÔÕÖÙÚÛÜÝŸÑ -]+" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address"class="style-label">Adresse :</label>
+                                <input type="text" class="form-control" placeholder="Par ex. 12 rue Fontaine" id="address" pattern="[#.0-9a-zA-Z\s,-]+" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city"class="style-label">Ville :</label>
+                                <input type="text" class="form-control" placeholder="Par ex. Lyon" id="city" pattern="[A-Za-zàáâãäåçèéêëìíîïðòóôõöùúûüýÿñÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÒÓÔÕÖÙÚÛÜÝŸÑ -]+" required><!--[a-zA-Z0-9 ]*-->
+                            </div>
+                            <div class="form-group">
+                                <label for="email"class="style-label">Email :</label>
+                                <input type="email" name="email" class="form-control" placeholder="Par ex. martin.delavigne@gmail.com" id="email" required>
+                            </div>
+                            <button type="submit" class="btn btn-light btn__order form__btn" id="confirm-link" data-toggle="modal" >Valider votre commande</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+        <!--Message d'erreur lancé en JS si on essaye d'envoyer un formulaire alors qu'il n'y a aucun produit commandé-->
+            <div id="prevent-msg">
+                <p>Merci de sélectionner des articles avant de remplir ce formulaire !</p>
+                <button type="button" class="btn btn-danger btn__buy prevent-msg__btn modal__link" onclick="window.location.href = 'index.html';">Reprendre vos achats</button>
+                <button type="button" class="btn btn-danger btn__basket prevent-msg__btn modal__link" onclick="window.location.href = 'basket.html';">Retourner au basket</button>
+            </div>      
+        </main> 
+
+        <footer class="footer">
+            <div class="container-footer">
+                <ul class="list-inline footer__div text-center">
+                    <li class="list-inline-item footer__item"><a href="#" class="text-body"><i class="far fa-copyright footer__icon"></i><br/>Copyright</a></li>
+                    <li class="list-inline-item footer__item"><a href="#" class="text-body"><i class="fas fa-user-lock footer__icon"></i><br/>Protection des données</a></li>
+                </ul>
+            </div>
+        </footer>
+    
+    
+    
+    
+    </body>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        
+        <script src="js/basket.js"></script>
+        
+         
+</html>
