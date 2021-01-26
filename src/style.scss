@@ -513,7 +513,7 @@ h3{
     }
     &__buttons {
         text-align: center;
-        margin-left: 15% ;
+        margin-left: 25% ;
         padding-bottom: 5rem;
     }
     &__varnish {
@@ -542,6 +542,13 @@ border: none;
 }
 .close{
     font-size: x-large;
+}
+.close-form{
+    background-color: #DEB887;
+    font-size: xx-large;
+    border:none;
+    float: right;
+    line-height: 2;
 }
 #pdt-button{
     margin:2rem;
@@ -576,7 +583,9 @@ border: none;
     }   
     &__link{
         font-size: large;
-        padding: 0;               
+        margin-right: 5rem;
+       
+
     }
 
 }
@@ -654,11 +663,12 @@ border: none;
 }
 #basket-amount{
     align-items: center;
-    margin-left:15rem;
+    margin-left:10rem;
     padding-top: 5rem;
 }
 .form-group{
     margin-top: 2.5rem;
+    margin-left: 3rem;
     
 }
 .cartitem__trash {
@@ -667,7 +677,7 @@ border: none;
 .price__amount{
     font-weight: bold;
     font-size: large;
-    margin-left:25rem;     
+    margin-left:35rem;     
 }
 #cart-amount{
     margin: 0rem 0 1rem 20rem;
@@ -754,7 +764,7 @@ border: none;
     margin-top: 5rem;    
 }
 #furnitur-case{
-    padding: 0 2rem 5rem 5rem;
+    padding: 0 2rem 15rem 5rem;
 }    
 .furniturselect__title{
     font-size: xx-large;
@@ -816,7 +826,10 @@ border: none;
         margin-left: 35%;
     }
     #confirm-link{
-        margin-left: 40rem;
+        margin-left: 30rem;
+    }
+    #confirm{
+        margin: 0 ;
     }
     .confirm__title{
         margin-left: 25rem;
@@ -827,6 +840,17 @@ border: none;
     }
     .fa-arrow-left{
         top: 1.5%;
+    }
+    .form-group{
+        margin-top: 2rem;
+    }
+    .modal__link{
+        margin-right: 3rem;
+    }
+    .price__amount{
+        margin-left: 0;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
     }
 
 }
