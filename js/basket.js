@@ -89,7 +89,7 @@ function showBasket () {
             let basketButton = document.createElement("button");
             basketButton.className = "btn btn-light basketItem__button btn__remove";
             basketButton.setAttribute("role", "button");
-            basketButton.innerHTML = 'Supprimer du panier';
+            basketButton.innerHTML = 'Supprimer';
 
             // Stocke via le bouton l'id du produit et l'option vernis choisie
             basketButton.setAttribute("data-id", [item._id, item.varnish]);
@@ -152,6 +152,7 @@ function updateBasketTotalPrice() {
 
 //Capture des éléments nécessaires du DOM
 let buttonConfirm = document.getElementById("confirm");
+let buttonClose = document.getElementById("close-form");
 let formSection = document.getElementById("form-container");
 let formElt = document.getElementById("formtosubmit");
 let formPreventElt = document.getElementById("prevent-msg");
@@ -165,8 +166,13 @@ let city = document.getElementById("city");
 /*Animation pour faire apparaître le formulaire quand on clique sur "termminer la commande"*/
 
 buttonConfirm.addEventListener("click", () => {
-   formSection.classList.add("active");
+   formSection.classList.toggle("active");
 });
+
+// Animation pour fermer le formulaire ??
+buttonClose.addEventListener('click', () => {
+    formSection.classList.remove('active')
+})
             
 
 /*Validation des données du formulaire en utilisant l'API de contraintes HTML 5*/

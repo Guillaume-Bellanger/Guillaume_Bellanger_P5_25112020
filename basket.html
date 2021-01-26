@@ -5,7 +5,7 @@
         <title>Meubles</title>
         <!-- Ajout du CDN Bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="src/style.css">
+        <link rel="stylesheet" href="src/css/style.css">
         <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
         <script src="nav.js"></script>
     </head>
@@ -59,7 +59,7 @@
                         <h2 class="form__title">Pour finaliser votre commande, merci de remplir ce formulaire.</h2>
                         
                         <form id="formtosubmit" method="post" action="http://localhost:3000/api/furniture/order" enctype="multipart/form-data">
-                            <button type="button" class="close" data-dismiss="form" aria-label="Close"><span aria-hidden="true">&times; </span></button>
+                           <button type="button" class="close-form"  id="close-form" data-dismiss="formtosubmit" aria-label="Close"></button>
                             <div class="form-group">
                                 <label for="firstName"class="style-label">Prénom :</label>
                                 <input type="text" name="firstName" class="form-control" placeholder="Par ex. Martin" id="firstName" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" required>
