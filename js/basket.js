@@ -89,7 +89,7 @@ function showBasket () {
             let basketButton = document.createElement("button");
             basketButton.className = "btn btn-light basketItem__button btn__remove";
             basketButton.setAttribute("role", "button");
-            basketButton.innerHTML = 'Supprimer du panier';
+            basketButton.innerHTML = 'Supprimer';
 
             // Stocke via le bouton l'id du produit et l'option vernis choisie
             basketButton.setAttribute("data-id", [item._id, item.varnish]);
