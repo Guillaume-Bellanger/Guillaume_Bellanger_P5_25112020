@@ -59,16 +59,14 @@
                         <h2 class="form__title">Pour finaliser votre commande, merci de remplir ce formulaire.</h2>
                         
                         <form id="formtosubmit" method="post" action="http://localhost:3000/api/furniture/order" enctype="multipart/form-data">
-                           
+                           <button type="button" class="close-form"  id="close-form" data-dismiss="formtosubmit" aria-label="Close"></button>
                             <div class="form-group">
                                 <label for="firstName"class="style-label">Prénom :</label>
-                                <input type="text" name="firstName" class="form-control" placeholder="Par ex. Martin" id="firstName" 
-                                pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" required>
+                                <input type="text" name="firstName" class="form-control" placeholder="Par ex. Martin" id="firstName" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastName"class="style-label">Nom :</label>
-                                <input type="text" name="lastName" class="form-control" placeholder="Par ex. Delavigne" id="lastName"
-                                pattern="[A-Za-zàáâãäåçèéêëìíîïðòóôõöùúûüýÿñÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÒÓÔÕÖÙÚÛÜÝŸÑ -]+" required>
+                                <input type="text" name="lastName" class="form-control" placeholder="Par ex. Delavigne" id="lastName" pattern="[A-Za-zàáâãäåçèéêëìíîïðòóôõöùúûüýÿñÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÒÓÔÕÖÙÚÛÜÝŸÑ -]+" required>
                             </div>
                             <div class="form-group">
                                 <label for="address"class="style-label">Adresse :</label>
@@ -76,8 +74,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="city"class="style-label">Ville :</label>
-                                <input type="text" class="form-control" placeholder="Par ex. Lyon" id="city" 
-                                pattern="[A-Za-zàáâãäåçèéêëìíîïðòóôõöùúûüýÿñÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÒÓÔÕÖÙÚÛÜÝŸÑ -]+" required><!--[a-zA-Z0-9 ]*-->
+                                <input type="text" class="form-control" placeholder="Par ex. Lyon" id="city" pattern="[A-Za-zàáâãäåçèéêëìíîïðòóôõöùúûüýÿñÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÒÓÔÕÖÙÚÛÜÝŸÑ -]+" required><!--[a-zA-Z0-9 ]*-->
                             </div>
                             <div class="form-group">
                                 <label for="email"class="style-label">Email :</label>
