@@ -174,9 +174,19 @@ let city = document.getElementById("city");
 
 /*Animation pour faire apparaître le formulaire quand on clique sur "termminer la commande"*/
 
-buttonConfirm.addEventListener("click", () => {
-   formSection.classList.toggle("active");
-});
+if (basket.length === 0){
+  console.log("test");
+  buttonConfirm.addEventListener("click", () => {
+    formSection.classList.toggle("none");
+  });
+  
+}else{
+  buttonConfirm.addEventListener("click", () => {
+    formSection.classList.toggle("active");
+  });
+  
+}
+
 
 // Animation pour fermer le formulaire 
 buttonClose.addEventListener('click', () => {
