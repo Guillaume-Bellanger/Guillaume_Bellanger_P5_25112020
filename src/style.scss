@@ -579,11 +579,12 @@ border: none;
     }
     &-footer{
         padding-right: 3rem;   
-        border-top: 0;         
+        border-top: 0;    
+        margin :0 ;     
     }   
     &__link{
-        font-size: large;
-        margin-right: 5rem;
+        font-size: small;
+        margin: 0 3rem 2rem 0rem;
        
 
     }
@@ -689,6 +690,9 @@ border: none;
     font-weight: bold;
     height: 50px;
     font-size: large;
+}
+.btn__buy{
+
 }
 .row-form{
     background-color:#DEB887 ;
@@ -853,4 +857,10 @@ border: none;
         margin-bottom: 3rem;
     }
 
+}
+@media only screen and (min-width: 1444px){
+
+    #confirm-link {
+        margin-left: 35%;
+    }
 }
