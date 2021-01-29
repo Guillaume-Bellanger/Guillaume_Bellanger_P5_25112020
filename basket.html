@@ -40,12 +40,12 @@
             <div class="container-fluid">
                 <div class="row basketpage__sections">
                     
-                    <div class="col-12 col-lg-8" id="basket-container" >
+                    <div class="col-12 col-xl-8" id="basket-container" >
                         <!--SECTION PRODUITS DU PANIER CREEE VIA JS DANS FICHIER PANIER.JS-->
                     </div>
                     
                     <!--Section prix total et bouton de commande-->
-                    <div class="col-12 col-lg-4 price">
+                    <div class="col-12 col-xl-4 price">
                         <p class="price__amount"></i> Montant total de votre commande:<br/><span id="basket-amount"></span></p>
                         <button class="btn btn-light card__button btn__order price__btn" id="confirm">Terminer votre commande <i class="fas fa-angle-double-right"></i></button>
                     </div>
@@ -88,8 +88,8 @@
             </section>
             
         <!--Message d'erreur lancé en JS si on essaye d'envoyer un formulaire alors qu'il n'y a aucun produit commandé-->
-            <div class="alert alert-primary alert_form" role="alert">
-                   Vous n'avez
+            <div class="alert alert-primary alert_form" id="prevent-msg" role="alert">
+                   Vous n'avez pas sélectionné de produit ! 
             </div>
         </main> 
 

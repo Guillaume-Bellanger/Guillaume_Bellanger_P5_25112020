@@ -175,9 +175,10 @@ let city = document.getElementById("city");
 /*Animation pour faire apparaître le formulaire quand on clique sur "termminer la commande"*/
 
 if (basket.length === 0){
-  console.log("test");
+  
   buttonConfirm.addEventListener("click", () => {
-    formSection.classList.toggle("none");
+    console.log("panier vide");
+    formSection.style.display ="none";
   });
   
 }else{
@@ -276,8 +277,8 @@ formElt.addEventListener("submit", function(e) {
 
     //S'il n'y a aucun article dans le panier, message apparaît
     if (products.length == 0) {
-        formPreventElt.style.visibility = "visible";
-        formPreventElt.style.zIndex = "2000";
+
+       
     } else {
 
     //Fonction pour envoyer les données du formulaire ainsi que la liste des id des produits commandés via une API fetch POST 
