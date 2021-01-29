@@ -448,9 +448,10 @@ h3{
 }
 .footer{
     background-color: #E9ECEF;   
-    padding: 3rem 0 3rem 0;        
-    margin-left: -5rem;
-    margin-right: -5rem;
+    padding: 3rem 5rem 3rem 5rem;
+   width: 100%;
+   
+    
 }
 .footer-index{
     padding: 10rem 0 2rem 0;
@@ -557,7 +558,7 @@ border: none;
 }
 .card__button{
     border: 1px solid black;
-    margin-left: 35rem;
+    
     margin-top: 5rem;
     margin-bottom: 5rem;
     font-weight: bold;
@@ -678,7 +679,8 @@ border: none;
 .price__amount{
     font-weight: bold;
     font-size: large;
-    margin-left:35rem;     
+    margin-left: 25rem;
+      
 }
 #cart-amount{
     margin: 0rem 0 1rem 20rem;
@@ -691,14 +693,12 @@ border: none;
     height: 50px;
     font-size: large;
 }
-.btn__buy{
 
-}
 .row-form{
     background-color:#DEB887 ;
 }
-.confirm{
-    margin:0;    
+#confirm{
+    margin-left: 25rem;    
 }
 .form {
     width: 60%;
@@ -820,7 +820,7 @@ border: none;
     font-size: medium;
 }
 
-@media only screen and (min-width : 1224px){
+@media only screen and (min-width : 1440px){
 /* Styles pour cette Media Queries */
 
     .pdtcase__stock{
@@ -858,9 +858,15 @@ border: none;
     }
 
 }
-@media only screen and (min-width: 1444px){
 
-    #confirm-link {
-        margin-left: 35%;
-    }
-}
+@media screen and (min-width : 1023px) and (max-width : 1439px) {
+
+   .price__amount{
+       margin-left: 25rem;
+       
+   }
+   #confirm{
+       margin-left: 25rem;
+   }
+}    
+   
