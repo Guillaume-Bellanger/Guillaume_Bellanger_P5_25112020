@@ -23,13 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function showBasket () {
+function showBasket () { // fonction pour récuperer les objets du panier dans le localstorage et les affichers avec une boucle 
     let items = JSON.parse(localStorage.getItem("basket"));    
     basketContainer.innerHTML = "" ;
     if (basket.length > 0 ) {
 
         //Boucle qui affiche les informations chacun des éléments du tableau basket
         basket.forEach(item => {
+          
 
             //Génère la "case" pour chaque produit du panier
             let basketItem = document.createElement("div");
@@ -57,14 +58,10 @@ function showBasket () {
             //Génère le vernis choisi
             let basketVarnish = document.createElement("h4");
                 basketVarnish.className = "basketItem__varnish";
-                basketDetails.appendChild(basketVarnish);
-            if (item.varnish !== null) {
+                basketDetails.appendChild(basketVarnish);            
                 basketVarnish.textContent = "Finition " + item.varnish;
-            } else {
-                //Dans le cas où l'utilisateur ne coche aucune option de personnalisation
-                basketVarnish.textContent = "Finition Standard";
-                item.varnish = "Standard";
-            }
+            
+            
             //Génère la quantité de produits achetés pour chaque case
             let basketQty = document.createElement("span");
             basketQty.textContent = item.quantity;
@@ -83,7 +80,7 @@ function showBasket () {
             basketPrice.textContent = totalPrice;
             basketItem.appendChild(basketPrice);
             
-            console.log(basketTotalPrice);
+            
             //prix affiché pour le panier Total
             
             basketAmount.textContent = new Intl.NumberFormat("fr-fR", {style: "currency", currency: "EUR"}).format(basketTotalPrice/100);
@@ -119,12 +116,11 @@ function suppressItem(event) {
                 //recuperer l'id de l'objet a supp
                 let objetId = event.target.getAttribute("data-id");
 
-                
-                let isObjet = basket.map(function(objet) { return (objet._id == objetId)}); // map = on parcour
-                
-                let indexObjet = isObjet.indexOf(true);            
-               
-              
+                //on parcour dans le tableau pour trouver le bon item , False si ce n'est pas lui, True si c'est lui
+                let isObjet = basket.map(function(objet) { return (objet._id == objetId)}); 
+                //on recupere uniquement l'index de l'objet du tableau que l'on souhaite supprimer 
+                let indexObjet = isObjet.indexOf(true);         
+                             
                 //sup l'objet dans le tableau
                 basket.splice(indexObjet, 1);
                
@@ -140,20 +136,22 @@ function suppressItem(event) {
              
 }
 
-function updateBasketTotalPrice() {
+function updateBasketTotalPrice() { // permet de mettre a jour le prix total du panier 
               
-              
+              //on recupere les prix de chaque produits (on fonction de leurs quantitees)
                let isPrice = basket.map(function(objet) { return (objet.price * objet.quantity )});
-               console.log(isPrice);
-              //addit de toutes les valeurs 
+               
+              
+              //addition de toutes les valeurs 
               basketTotalPrice = 0 ; //remise a 0
               for (let i of isPrice) {
 
-                 basketTotalPrice += i ; 
+                 basketTotalPrice += i ;  // a chaque itération rajoute la valeur de isPrice de chaque article du tableau
+                 
 
              }          
                                  
-            }
+}
 
 
 /*FORMULAIRE */
@@ -247,6 +245,7 @@ function sendFormData(data) {
         .then(response => {
             console.log(response);
             finishBasket(response); 
+           
             
            
       
@@ -254,7 +253,7 @@ function sendFormData(data) {
         .catch(error => alert("Erreur : " + error));
 }
 
-/* Envoi des données du formulaire avec une fetch POST */
+
 
 formElt.addEventListener("submit", function(e) { 
     // Pour empêcher le formulaire d'envoyer les données par défaut sans validation préalable
@@ -283,10 +282,11 @@ formElt.addEventListener("submit", function(e) {
 
     //Fonction pour envoyer les données du formulaire ainsi que la liste des id des produits commandés via une API fetch POST 
     sendFormData(order);
+    
     }
 }); 
 
-//Fonction pour stocker l'order_id et le firstname du user dans le local storage
+//Fonction pour stocker l'order_id et le firstname  et le prix total du user dans le local storage
 
 async function finishBasket(data) {
     await localStorage.setItem("orderId", data.orderId); // on stock une paire clé "orderId" et valeur data.orderId dans le local storage

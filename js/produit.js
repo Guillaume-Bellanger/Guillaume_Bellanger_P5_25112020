@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getIdFromUrl() {
         let params = new URLSearchParams(window.location.search); //renvoie le Href(url) de la page actuel
+        console.log(params.get("id"));
         return params.get("id"); 
          
 }

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Récupération du prénom du user dans le localStorage
     confirmedName.textContent = localStorage.getItem("orderName"); // on récup dans le local storage la clé "orderName" et on l'affiche dans le html
 
+    //recupere le prix total et l'affiche
     confirmedPrice.innerHTML = "prix total de votre commande : <br/>" + new Intl.NumberFormat("fr-fR", {style: "currency", currency: "EUR"}).format(localStorage.getItem("orderPrice")/100);
     
     
