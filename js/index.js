@@ -20,6 +20,7 @@ function showProducts(products) { // la fonction showProducts à comme arguments
 
     //Boucle qui opère pour chaque produit contenu dans le tableau "product"
     products.forEach(product => {
+        
 
         // Génère la "case" pour chaque produit
         const card  = document.createElement("div");
