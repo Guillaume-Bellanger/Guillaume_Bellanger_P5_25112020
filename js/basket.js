@@ -1,7 +1,7 @@
  
 //variable prix affiché
       let basketTotalPrice = 0;
-//
+
       let basket = JSON.parse(localStorage.getItem("basket"));
       if (basket === null) basket = [];
       const basketContainer = document.getElementById("basket-container");
@@ -10,7 +10,7 @@
 //Lance la mise à jour avec le localStorage et l'affichage du panier, ainsi que le calcul du prix total
 document.addEventListener("DOMContentLoaded", () => {
     
-  
+                toggleForm();
                 if (basket.length > 0){
                   updateBasketTotalPrice();
                   showBasket();                
@@ -81,11 +81,8 @@ function showBasket () { // fonction pour récuperer les objets du panier dans l
             basketItem.appendChild(basketPrice);
             
             
-            //prix affiché pour le panier Total
-            
-            basketAmount.textContent = new Intl.NumberFormat("fr-fR", {style: "currency", currency: "EUR"}).format(basketTotalPrice/100);
-            
-            
+            //prix affiché pour le panier Total            
+            basketAmount.textContent = new Intl.NumberFormat("fr-fR", {style: "currency", currency: "EUR"}).format(basketTotalPrice/100);     
                 
 
             // Génère le bouton supprimer
@@ -133,6 +130,7 @@ function suppressItem(event) {
                
                   updateBasketTotalPrice();
                   showBasket();     
+                  toggleForm();
              
 }
 
@@ -171,21 +169,21 @@ let city = document.getElementById("city");
 
 
 /*Animation pour faire apparaître le formulaire quand on clique sur "termminer la commande"*/
-
-if (basket.length === 0){
+function toggleForm() {
+  if (basket.length === 0){
   
-  buttonConfirm.addEventListener("click", () => {
-    console.log("panier vide");
-    formSection.style.display ="none";
-  });
-  
-}else{
-  buttonConfirm.addEventListener("click", () => {
-    formSection.classList.toggle("active");
-  });
-  
+    buttonConfirm.addEventListener("click", () => {
+      console.log("panier vide");
+      formSection.style.display ="none";
+    });
+    
+  }else{
+    buttonConfirm.addEventListener("click", () => {
+      formSection.classList.toggle("active");
+    });
+    
+  }
 }
-
 
 // Animation pour fermer le formulaire 
 buttonClose.addEventListener('click', () => {
@@ -244,10 +242,7 @@ function sendFormData(data) {
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            finishBasket(response); 
-           
-            
-           
+            finishBasket(response);          
       
         })
         .catch(error => alert("Erreur : " + error));

@@ -1,11 +1,6 @@
-//JS de tout ce qui est en rapport avec la page index ( la page d'acceuil)
+
 //déclaration variables products en tant que tableau "vide" dans un premier temps
 let products =[]; 
-// on commence par récuperer la liste des produits depuis le serveur grâce a une API fetch GET
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", () => {  //on écoute un evenement pour savoir si la page est bien chargé ou non 
     //Fonction pour récupérer la liste des produits depuis le serveur grâce à une API fetch GET 
@@ -72,7 +67,7 @@ function showProducts(products) { // la fonction showProducts à comme arguments
         const btnDetails = document.createElement("a");
         btnDetails.className = "btn btn-light card__btnDetails btn__details";
         btnDetails.setAttribute("role", "button"); //permet de rajouter un attibut button 
-        btnDetails.innerHTML = '<i class="fas fa-info-circle"></i> En savoir plus'; // permet de rajouter une  icone et du text au button
+        btnDetails.innerHTML = '<i class="fas fa-info-circle"></i> En savoir plus'; // icone et du text au button
 
         //Envoie l'info du id du produit sélectionné à la page produit.html via les paramètres de l'url
         btnDetails.setAttribute("href", "produit.html?id=" + product._id); //permet de rajouter en href "produit.html?id="son id"

@@ -1,5 +1,3 @@
-/*Ensemble des fonctions et événements relatifs à la page confirmation.html, qui affiche le message de confirmation de commande personnalité avec prénom du user, numéro de commande et prix total */
-
 
 //Capture des éléments du DOM
 let confirmedPrice = document.getElementById("sent-price");

@@ -1,7 +1,7 @@
 /* Requêtes GET et POST(API fetch)*/
 
 
-//Fonction pour récupérer la liste des produits depuis le serveur grâce à une API fetch GET
+//Fonction pour récupérer la liste des produits depuis le serveur 
 
 function getProducts() {  //fonction nommé getProducts sans arguments
     //Récupération des données via une API fetch 
@@ -9,7 +9,7 @@ function getProducts() {  //fonction nommé getProducts sans arguments
         .then(response => response.json())//renvoie une autre réponse 
         .then(data => {
             //Affiche la liste des produits une fois que les données sont chargées
-            showProducts(data);  // data ???
+            showProducts(data);  
                 console.log(data);
         })
         //Affiche l'erreur si requête ne fonctionne pas

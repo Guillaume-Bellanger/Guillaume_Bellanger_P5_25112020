@@ -1,6 +1,3 @@
-/*Ensemble des fonctions et événements relatifs à la page produit.html, qui affiche un produit spécifique qu'il a été récupéré depuis le serveur */
-
-
 
 //Capture des éléments du DOM
 const pdtCase = document.getElementById("product-case");
@@ -32,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
-
+//fonction pour recuperer l'id de l'objet de la page en cour 
 function getIdFromUrl() {
         let params = new URLSearchParams(window.location.search); //renvoie le Href(url) de la page actuel
         console.log(params.get("id"));
@@ -83,7 +80,8 @@ function showItem(item) {  //item comme argument
 
     } )
 }
-
+//fonction qui permet d'enregistrer dans le local storage la selection d'article
+//permet aussi de gerer la QT des articles.
 function addToBasket(item) {
     item.quantity = 1; //valeur de base 
     let basket = JSON.parse(localStorage.getItem("basket"));
