@@ -96,7 +96,8 @@ function showBasket () { // fonction pour récuperer les objets du panier dans l
             
             // Au clic du bouton, lance la fonction de suppression de l'article
             basketButton.addEventListener("click", suppressItem); 
-            basketItem.appendChild(basketButton);             
+            basketItem.appendChild(basketButton);
+                         
             
         });
     } else {
@@ -125,7 +126,7 @@ function suppressItem(event) {
                 //mettre a jour le localstorage
                 
                  localStorage.setItem('basket', JSON.stringify(basket));
-                 
+                 console.log(basket);
                 //actualiser
                
                   updateBasketTotalPrice();
@@ -170,19 +171,19 @@ let city = document.getElementById("city");
 
 /*Animation pour faire apparaître le formulaire quand on clique sur "termminer la commande"*/
 function toggleForm() {
-  if (basket.length === 0){
-  
-    buttonConfirm.addEventListener("click", () => {
-      console.log("panier vide");
-      formSection.style.display ="none";
-    });
-    
-  }else{
-    buttonConfirm.addEventListener("click", () => {
-      formSection.classList.toggle("active");
-    });
-    
-  }
+  buttonConfirm.addEventListener("click", () => {
+      if (basket.length === 0){
+
+        console.log("panier vide");
+        formSection.style.display ="none";
+        
+      }else{
+        formSection.classList.add("active");
+        console.log('basket dif de 0');
+      }
+
+  });
+ 
 }
 
 // Animation pour fermer le formulaire 

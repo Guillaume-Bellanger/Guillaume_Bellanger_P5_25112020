@@ -735,6 +735,7 @@ border: none;
     
     //Classe ajoutée en JS au clic sur le bouton "Terminer votre commande", qui rend le formulaire visible
     &.active {
+       
         opacity: 1;
         z-index: 1000;
     }
