@@ -41,6 +41,7 @@ function getIdFromUrl() {
 //Fonction pour afficher le produit sélectionné dans la page produit.html
 
 function showItem(item) {  //item comme argument
+    
     //Actualise l'image du produit
     pdtImg.alt = item.name;
     pdtImg.src = item.imageUrl;

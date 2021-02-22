@@ -3,10 +3,37 @@
 
 //Fonction pour récupérer la liste des produits depuis le serveur 
 
+function promiseXhr( url, verbe='GET', body=null ) { 
+    return new Promise((resolve, reject) => {
+        let recoverHttp = new XMLHttpRequest(); 
+        recoverHttp.open(verbe, url );
+        if (body) {
+            recoverHttp.setRequestHeader("Content-Type","application/json");
+            recoverHttp.send((body));
+        }else{
+            recoverHttp.send();
+        }
+       
+        recoverHttp.onreadystatechange = function() {
+            if(this.readyState === XMLHttpRequest.DONE) {
+                if(this.status === 200) {
+                    console.log(JSON.parse(this.responseText));
+                    resolve(JSON.parse(this.responseText));
+                    
+                }else {
+                    reject(XMLHttpRequest);
+                }
+            }
+        }
+    })
+}
+
+
+
 function getProducts() {  //fonction nommé getProducts sans arguments
     //Récupération des données via une API fetch 
-    fetch("http://localhost:3000/api/furniture")
-        .then(response => response.json())//renvoie une autre réponse 
+    promiseXhr("http://localhost:3000/api/furniture")
+        
         .then(data => {
             //Affiche la liste des produits une fois que les données sont chargées
             showProducts(data);  
@@ -17,22 +44,13 @@ function getProducts() {  //fonction nommé getProducts sans arguments
 }
 
 
-//Fonction pour récupérer un produit précis depuis le serveur - via son id intégré aux paramètres de l'URL - grâce à une API fetch GET ciblée
+//Fonction pour récupérer un produit précis depuis le serveur - via son id intégré aux paramètres de l'URL 
+
 function getProduct(id) {      
-
-    //Récupération des données via une API fetch 
-    fetch('http://localhost:3000/api/furniture/' + id)
-        .then(response => {
-            console.log(response); //affiche la résponse dans le console.log
-            
-            if (response.ok) {
-                return response.json() 
-            }
-
-        })
+        promiseXhr('http://localhost:3000/api/furniture/' + id, 'GET' )
         .then(data => {
             console.log(data)
-            showItem(data); //initialisation de la fonction showItem qu'on retrouve dans la page produit.js
+            showItem(data); //initialisation de la fonction showItem qu'on retrouve dans la page produit.js 
 
             //Création d'un objet représentant le produit sélectionné 
             let pdtSelected = {  //objet pdtSelected

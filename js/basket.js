@@ -230,23 +230,16 @@ city.addEventListener("keyup", function (event) {
   }
 });
 
-//Fonction pour envoyer les données du formulaire ainsi que la liste des id des produits commandés via une API fetch POST
+//Fonction pour envoyer les données du formulaire ainsi que la liste des id des produits commandés 
 
-function sendFormData(data) {   
- fetch("http://localhost:3000/api/furniture/order", {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json"
-        },
-        body: JSON.stringify(order)
-        })
-        .then(response => response.json())
+function sendFormData(data) {  
+  console.log(data);    
+    promiseXhr("http://localhost:3000/api/furniture/order", "POST", data)
         .then(response => {
             console.log(response);
-            finishBasket(response);          
-      
+            finishBasket(response);       
         })
-        .catch(error => alert("Erreur : " + error));
+        .catch(error => alert("Erreur : " + error));    
 }
 
 
