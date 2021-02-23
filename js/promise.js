@@ -1,7 +1,7 @@
-function promiseXhr( url, verbe='GET', body=null ) { 
+function promiseXhr( url, verb = 'GET', body = null ) { 
     return new Promise((resolve, reject) => {
-        let recoverHttp = new XMLHttpRequest(); 
-        recoverHttp.open(verbe, url );
+        const recoverHttp = new XMLHttpRequest(); 
+        recoverHttp.open(verb, url );
         if (body) {
             recoverHttp.setRequestHeader("Content-Type","application/json");
             recoverHttp.send(JSON.stringify(body));
